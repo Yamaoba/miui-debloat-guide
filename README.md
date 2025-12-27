@@ -31,12 +31,45 @@
   [https://www.reddit.com/r/PocoPhones/comments/jc5rlr/list_of_safe_to_uninstall_system_apps/](https://www.reddit.com/r/PocoPhones/comments/jc5rlr/list_of_safe_to_uninstall_system_apps/)
 * Reddit – msa & miui daemon discussion
   [https://www.reddit.com/r/miui/comments/1fa50gi/am_i_need_those_msa_and_miui_daemon_or_should_i/](https://www.reddit.com/r/miui/comments/1fa50gi/am_i_need_those_msa_and_miui_daemon_or_should_i/)
+* Universal ADB Debloater - Next Generation (UAD-NG) List
+  [https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation/blob/main/resources/assets/uad_lists.json](https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation/blob/main/resources/assets/uad_lists.json)
 
+---
+### 🔄 Uninstall Command (ADB)
+
+```bash
+pm uninstall -k --user 0 <package.name>
+```
+
+### 🔄 Uninstall Command (ADB)
+
+```bash
+pm disable-user --user 0 <package.name>
+```
+
+### 🔄 Restore Command (ADB)
+
+```bash
+pm install-existing --user 0 <package.name>
+```
 ---
 
 ## 🧹 1. Apps I Uninstalled (Safe for Daily Use)
 
-> These apps were removed without breaking core system functionality.
+> These apps were removed without breaking core system functionality. Mostly bloatware, analytics, ads, games, or China-only services.
+
+### Preinstalled Games
+
+> Most of them is preinstalled game by poco or play store via completing setup
+
+* `com.block.juggle`
+* `com.block.puzzle.game.hippo.mi`
+* `com.sukhavati.gotoplaying.bubble.BubbleShooter.mintcom.logame.eliminateintruder3d`
+* `com.jewelsblast.ivygames.Adventure.free`
+* `com.ordinaryjoy.woodblast`
+* `com.mintgames.wordtrip`
+* `com.nf.snake`
+* `com.mintgames.triplecrush.tile.fun`
 
 ### MIUI / Xiaomi Apps
 
@@ -82,11 +115,19 @@
 
 > These apps may affect system stability, DRM, or battery life.
 
-### ⚠️ **DO NOT UNINSTALL (Recommended)**
+### ⚠️ **DO NOT UNINSTALL (Recommended) (Make Phone Bricked!!) **
 
-* `com.miui.wmsvc`
-
-  * ⚠️ May break **Widevine L1**, cause bootloops or service crashes.
+```text
+com.miui.securitycenter                  # MIUI Security Center
+com.miui.securityadd                     # Security extensions
+com.xiaomi.finddevice                   # Find Device / Anti-theft
+com.android.systemui                    # System UI
+com.android.settings                    # Settings
+com.miui.systemui.plugin                # MIUI UI dependency
+com.miui.home                           # MIUI Launcher (unless replaced safely)
+com.miui.packageinstaller                # MIUI Package Installer
+com.xiaomi.market                        # GetApps / Mi App Store, Removing may break Xiaomi app updates
+```
 
 ### ⚠️ **Be Careful**
 
@@ -118,6 +159,11 @@
     * GPU tuner
     * Removing may delay **calls & SMS**
   * 🔁 **Reinstalled for safety**
+    
+* `com.miui.wmsvc`
+  * ⚠️ Some says potentially break **Widevine L1**, cause bootloops or service crashes. Could be uninstalled without issue
+* `com.tencent.soter.soterserver`
+  * ⚠️ Some says potentially break **Widevine L1**, cause bootloops or service crashes. I personally uninstall it and found no issue
 
 ---
 
@@ -235,5 +281,11 @@
 * Always debloat **step‑by‑step**, reboot after major changes.
 * If something breaks → **reinstall the package immediately**.
 * For maximum safety, prefer **disable > uninstall**.
+* China-only services are usually safe to remove on **Global ROM**
+* Analytics packages can slightly improve battery & privacy when removed
+* If you rely on **GetApps**, keep `com.xiaomi.market`
+* MIUI updates may re-install some packages
+
+---
 
 Happy debloating 🚀
